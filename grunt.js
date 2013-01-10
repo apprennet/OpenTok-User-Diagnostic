@@ -1,12 +1,18 @@
 module.exports = function(grunt) {
   grunt.initConfig({
     coffee: {
-      app: {
+      dist: {
         src: ['src/TB.diagnostic.coffee'],
-        dest: '.',
+        dest: 'tmp',
         options: {
           bare: false
         }
+      }
+    },
+    concat: {
+      dist: {
+        src: ["lib/**/*.js", "tmp/**/*.js"],
+        dest: "TB.diagnostic.js"
       }
     },
     min: {
@@ -16,13 +22,13 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      files: '<config:coffee.app.src>',
+      files: '<config:coffee.dist.src>',
       tasks: 'default'
     }
   });
 
   grunt.loadNpmTasks('grunt-growl');
   grunt.loadNpmTasks('grunt-coffee');
-  grunt.registerTask('default', 'coffee');
-  grunt.registerTask('precompile', 'coffee min');
+  grunt.registerTask('default', 'coffee concat');
+  grunt.registerTask('precompile', 'default min');
 };
