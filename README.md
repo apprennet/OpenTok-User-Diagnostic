@@ -61,14 +61,6 @@ A library for getting a user's network, software, and hardware diagnostics. This
             }
         },
         "port_access": {
-            "80": {
-                "reason": "Connection established",
-                "result": "Pass"
-            },
-            "443": {
-                "reason": "Failed to connect",
-                "result": "Warn"
-            },
             "1935": {
                 "reason": "Connection established",
                 "result": "Pass"
