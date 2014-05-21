@@ -87,9 +87,12 @@ The library exposes one method <code>TB.runTests(callback)</code>. Use it like t
 ```javascript
 TB.runTests(function(data) {
   // Do something with data...
+  alert("finished running the test!")
+
+  console.log(data);
   
-  if (data.cat_network.port_access["443"].result == "Fail") {
-    alert("Port 443 is closed!");
+  if (data.cat_network.port_access["1935"].result == "Fail") {
+    alert("Port 1935 is closed!");
   }
   
   if (data.cat_hardware.camera_count.count.result == "Fail") {
